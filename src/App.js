@@ -9,11 +9,7 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  return (
-    <StrictMode>
-      <RouterProvider router={router}></RouterProvider>
-    </StrictMode>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
