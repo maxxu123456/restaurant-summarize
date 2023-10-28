@@ -64,7 +64,7 @@ function Home() {
         {
           role: "user",
           content:
-            "Give a breakdown of the reccomended dishes with a brief description of each dish with a new line character separating each item and a number in front of each item and do not give notes: " +
+            "Give a breakdown of the reccomended dishes with a brief description of each dish with a new line character separating each item and a number in front of each item and do not give notes and do not repeat items: " +
             contentString,
         },
       ],
