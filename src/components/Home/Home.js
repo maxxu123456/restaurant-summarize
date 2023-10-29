@@ -110,7 +110,7 @@ function Home() {
         {
           role: "user",
           content:
-            "Give a breakdown of the reccomended dishes with a brief description of each food dish with a new line character separating each item and a number in front of each item. Only give a list of food dishes. For each dish that you list, give a brief description of the item. Here is the reviews that contain the dishes. Do not give a summary afterwards. Do not list items that are not dishes: " +
+            "Give a breakdown of the reccomended dishes with a brief description of each food dish with a new line character separating each item and a number in front of each item. If the dish is not a food, do not list the item. For each dish that you list, give a brief description of the item. Do not provide a summary or note at the end. Only list food. Here is the reviews that contain the dishes:" +
             contentString,
         },
       ],
