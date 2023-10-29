@@ -1,13 +1,5 @@
 /*https://coolors.co/7776bc-cdc7e5-fffbdb-ffec51-ff674d*/
 
-.map {
-
-}
-
-h1 {
-    
-}
-
 .container h3 {
     background-color: white;
     border: solid black 0.1rem;
@@ -60,8 +52,8 @@ h1 {
     flex-direction: column;
     /* border: 0.1rem solid black; */
     border-radius: 0.75rem;
-    padding: 0.5rem;
     width: 40rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem black;
 }
 
 .dishes-container {
@@ -69,7 +61,7 @@ h1 {
     flex-direction: column;
     /* border: 0.1rem solid black; */
     border-radius: 0.75rem;
-    padding: 0.5rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem black;
 }
 
 .dishes-list {
@@ -105,4 +97,12 @@ h2 {
     margin: 0rem;
     background-color: #7776BC;
     color: white;
+}
+
+.search-bear-icon {
+    position: relative;
+    width: 5rem;
+    align-self: end;
+    top: 0.7rem;
+    right: 0.4rem;
 }

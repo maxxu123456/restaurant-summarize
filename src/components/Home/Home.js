@@ -93,6 +93,7 @@ function Home() {
     <div className="center-horizontal">
       <section className="flex-container">
         <div className="image-group">
+          <img className="search-bear-icon" src="./search-bear.png"></img>
           <input className="location-box" value="Restaurant Name"></input>
           <img className="res-image" src="./testimage.jpg"/>
           <div className="consensus-container">
