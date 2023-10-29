@@ -40,6 +40,8 @@ function Home() {
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
   const [response, setResponse] = useState({ sentiment: "", dishes: "" });
+  let [search, setSearch] = useState({place: "test"});
+  let [location, setLocation] = useState({location: ""});
   function getSentiment() {
     let contentString = "";
     for (const review of restaurant.reviews) {
@@ -93,6 +95,18 @@ function Home() {
     main();
   }, []);
 
+  function handleSubmit(event) {
+    setLocation(search);
+    // console.log(search.place.value)
+    // alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  function handleChange(event) {
+    setSearch(event.target.value);
+    console.log(search);
+  }
+
   return (
     <div className="center-horizontal">
       <section className="flex-container">
@@ -101,8 +115,15 @@ function Home() {
             <img className="search-bear-icon" src="./search-bear.png"></img>
             <span>Rate-It</span>
           </div>
-          <input className="location-box" value="Restaurant Name"></input>
-          <img className="res-image" src="./testimage.jpg"/>
+          {/* <input className="location-box" value="Restaurant Name"></input> */}
+          <form onSubmit={handleSubmit}>
+            <input type="text" value={search.place} onChange={handleChange} className="location-box"/>
+            {/* <input type="submit" value="Submit" /> */}
+          </form>
+          {/* <img className="res-image" src="./testimage.jpg"/> */}
+          <iframe width="600" className="res-image" height="450" loading="lazy" allowfullscreen
+            src={`https://www.google.com/maps/embed/v1/place?q=${location}&key=AIzaSyBXVuclOKs8BC2ru7PfGinjwcd2CcOpcbQ`}>
+          </iframe>
           <div className="consensus-container">
            <h2><img className="icon" src="./chat-bubble-icon.svg"></img>General Consensus
             <ClipLoader
