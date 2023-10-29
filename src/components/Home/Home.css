@@ -97,6 +97,9 @@ h2 {
     margin: 0rem;
     background-color: #7776BC;
     color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .search-bear-icon {
