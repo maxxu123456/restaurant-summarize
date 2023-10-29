@@ -8,13 +8,13 @@ const openai = new OpenAI({
   apiKey: OPENAI_KEY,
   dangerouslyAllowBrowser: true,
 });
-
+let count = 0;
 function Home() {
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
   let [searchText, setSearchText] = useState("");
-  let [search, setSearch] = useState({place: "Delarosa"});
-  let [location, setLocation] = useState({location: ""});
+  let [search, setSearch] = useState({ place: "ArtObject" });
+  let [location, setLocation] = useState({ location: "Delarosa SF" });
   const [response, setResponse] = useState({ sentiment: "", dishes: "" });
   async function getPlaceId(query) {
     var myHeaders = new Headers();
@@ -84,7 +84,6 @@ function Home() {
   }
 
   function getSentiment(reviews) {
-
     let contentString = "";
     for (const review of reviews) {
       contentString += review;
@@ -111,7 +110,7 @@ function Home() {
         {
           role: "user",
           content:
-            "Give a breakdown of the reccomended dishes with a brief description of each food dish with a new line character separating each item and a number in front of each item. Only give a list of food dishes. For each dish that you list, give a brief description of the item. Here is the reviews that contain the dishes: " +
+            "Give a breakdown of the reccomended dishes with a brief description of each food dish with a new line character separating each item and a number in front of each item. Only give a list of food dishes. For each dish that you list, give a brief description of the item. Here is the reviews that contain the dishes. Do not give a summary afterwards. Do not list items that are not dishes: " +
             contentString,
         },
       ],
@@ -124,7 +123,13 @@ function Home() {
     console.log(e.target.value);
   };
   function handleSubmit(event) {
-    setLocation(search);
+    count++;
+    console.log("submitted");
+    if (count == 1) {
+      getReviews(search);
+      setLocation(search);
+    }
+
     event.preventDefault();
   }
 
@@ -141,16 +146,25 @@ function Home() {
             <span>Rest-Review</span>
           </div>
 
-
           {/* <input className="location-box" value="Restaurant Name"></input> */}
           <form onSubmit={handleSubmit}>
-            <input type="text" value={search.place} onChange={handleChange} className="location-box"/>
+            <input
+              type="text"
+              value={search.place}
+              onChange={handleChange}
+              className="location-box"
+            />
             {/* <input type="submit" value="Submit" /> */}
           </form>
           {/* <img className="res-image" src="./testimage.jpg"/> */}
-          <iframe width="600" className="res-image" height="450" loading="lazy" allowfullscreen
-            src={`https://www.google.com/maps/embed/v1/place?q=${location}&key=AIzaSyBXVuclOKs8BC2ru7PfGinjwcd2CcOpcbQ`}>
-          </iframe>
+          <iframe
+            width="600"
+            className="res-image"
+            height="450"
+            loading="lazy"
+            allowfullscreen
+            src={`https://www.google.com/maps/embed/v1/place?q=${location}&key=AIzaSyBXVuclOKs8BC2ru7PfGinjwcd2CcOpcbQ`}
+          ></iframe>
           <div className="consensus-container">
             <h2>
               <img className="icon" src="./chat-bubble-icon.svg"></img>General
