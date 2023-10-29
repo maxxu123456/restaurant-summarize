@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { OPENAI_KEY } from "../../keys";
 import "./Home.css";
 import OpenAI from "openai";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const openai = new OpenAI({
   apiKey: OPENAI_KEY,
@@ -36,6 +37,8 @@ const restaurant = {
 };
 
 function Home() {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
   const [response, setResponse] = useState({ sentiment: "", dishes: "" });
   function getSentiment() {
     let contentString = "";
@@ -83,6 +86,7 @@ function Home() {
         sentiment: sentiment,
         dishes: dishes.replace(/ *\([^)]*\) */g, ""),
       });
+      setLoading(false);
       console.log(sentiment);
       console.log(dishes);
     };
@@ -90,13 +94,47 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>General Consensus</h1>
-      <p>{response.sentiment}</p>
-      <h1>Notable Dishes</h1>
-      {response.dishes.split("\n").map((s) => {
-        return <p>{s}</p>;
-      })}
+    <div className="center-horizontal">
+      <section className="flex-container">
+        <div className="image-group">
+          <div className="title">
+            <img className="search-bear-icon" src="./search-bear.png"></img>
+            <span>Rate-It</span>
+          </div>
+          <input className="location-box" value="Restaurant Name"></input>
+          <img className="res-image" src="./testimage.jpg"/>
+          <div className="consensus-container">
+           <h2><img className="icon" src="./chat-bubble-icon.svg"></img>General Consensus
+            <ClipLoader
+              color={color}
+              loading={loading}
+              size={25}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+           </h2>
+            <span className="consensus">{response.sentiment}</span>
+          </div>
+        </div>
+        <div className="flex-row">
+          <div className="dishes-container">
+            <h2><img className="icon" src="./note-icon.svg"></img>Notable Dishes
+            <ClipLoader
+              color={color}
+              loading={loading}
+              size={25}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+            </h2>
+            <div className="dishes-list">
+                {response.dishes.split("\n").map((s) => {
+                  return <span>{s}</span>;
+                })}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
