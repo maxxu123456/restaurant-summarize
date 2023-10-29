@@ -110,7 +110,7 @@ function Home() {
         <div className="image-group">
           <div className="title">
             <img className="search-bear-icon" src="./search-bear.png"></img>
-            <span>Rate-It</span>
+            <span>Rest-Review</span>
           </div>
           {/* <input className="location-box" value="Restaurant Name"></input> */}
           <form onSubmit={handleSubmit}>
