@@ -90,13 +90,27 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>General Consensus</h1>
-      <p>{response.sentiment}</p>
-      <h1>Notable Dishes</h1>
-      {response.dishes.split("\n").map((s) => {
-        return <p>{s}</p>;
-      })}
+    <div className="center-horizontal">
+      <section className="flex-container">
+        <div className="image-group">
+          <input className="location-box" value="Restaurant Name"></input>
+          <img className="res-image" src="./testimage.jpg"/>
+          <div className="consensus-container">
+           <h2><img className="icon" src="./chat-bubble-icon.svg"></img>General Consensus</h2>
+            <span className="consensus">{response.sentiment}</span>
+          </div>
+        </div>
+        <div className="flex-row">
+          <div className="dishes-container">
+            <h2><img className="icon" src="./note-icon.svg"></img>Notable Dishes</h2>
+            <div className="dishes-list">
+                {response.dishes.split("\n").map((s) => {
+                  return <span>{s}</span>;
+                })}
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

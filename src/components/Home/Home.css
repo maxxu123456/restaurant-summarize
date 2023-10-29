@@ -1,0 +1,108 @@
+/*https://coolors.co/7776bc-cdc7e5-fffbdb-ffec51-ff674d*/
+
+.map {
+
+}
+
+h1 {
+    
+}
+
+.container h3 {
+    background-color: white;
+    border: solid black 0.1rem;
+    border-radius: 2rem;
+    padding: 0.8rem;
+}
+
+.res-image {
+    width: 40rem;
+    height: 30rem;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+.center-horizontal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-box {
+    height: 3rem;
+    border-radius: 1.5rem;
+    width: 40rem;
+}
+
+.consensus-container {
+    display: flex;
+    flex-direction: column;
+    /* border: 0.1rem solid black; */
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    width: 40rem;
+}
+
+.dishes-container {
+    display: flex;
+    flex-direction: column;
+    /* border: 0.1rem solid black; */
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+}
+
+.dishes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 30rem;
+    padding: 0.5rem;
+    background-color: #CDC7E5;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+}
+
+.consensus {
+    background-color: #CDC7E5;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    padding: 0.5rem;
+}
+
+.icon {
+    height: 1.5rem;
+    padding: 0.2rem;
+    position: relative;
+    bottom: 0rem;
+}
+
+h2 {
+    /* border: 0.1rem solid black; */
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    padding: 0.5rem;
+    margin: 0rem;
+    background-color: #7776BC;
+    color: white;
+}
