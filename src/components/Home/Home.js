@@ -40,7 +40,7 @@ function Home() {
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
   const [response, setResponse] = useState({ sentiment: "", dishes: "" });
-  let [search, setSearch] = useState({place: "test"});
+  let [search, setSearch] = useState({place: "Delarosa"});
   let [location, setLocation] = useState({location: ""});
   function getSentiment() {
     let contentString = "";
@@ -97,14 +97,11 @@ function Home() {
 
   function handleSubmit(event) {
     setLocation(search);
-    // console.log(search.place.value)
-    // alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
 
   function handleChange(event) {
     setSearch(event.target.value);
-    console.log(search);
   }
 
   return (
