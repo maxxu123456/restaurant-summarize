@@ -12,6 +12,7 @@
     height: 30rem;
     object-fit: cover;
     border-radius: 2rem;
+    border: none;
 }
 
 .center-horizontal {
@@ -45,6 +46,9 @@
     height: 3rem;
     border-radius: 1.5rem;
     width: 40rem;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    font-weight: 500;
 }
 
 .consensus-container {

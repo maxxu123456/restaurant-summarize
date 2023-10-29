@@ -13,6 +13,8 @@ function Home() {
   let [loading, setLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
   let [searchText, setSearchText] = useState("");
+  let [search, setSearch] = useState({place: "Delarosa"});
+  let [location, setLocation] = useState({location: ""});
   const [response, setResponse] = useState({ sentiment: "", dishes: "" });
   async function getPlaceId(query) {
     var myHeaders = new Headers();
@@ -82,6 +84,7 @@ function Home() {
   }
 
   function getSentiment(reviews) {
+
     let contentString = "";
     for (const review of reviews) {
       contentString += review;
@@ -120,20 +123,34 @@ function Home() {
     setSearchText(e.target.value);
     console.log(e.target.value);
   };
+  function handleSubmit(event) {
+    setLocation(search);
+    event.preventDefault();
+  }
+
+  function handleChange(event) {
+    setSearch(event.target.value);
+  }
+
   return (
     <div className="center-horizontal">
       <section className="flex-container">
         <div className="image-group">
           <div className="title">
             <img className="search-bear-icon" src="./search-bear.png"></img>
-            <span>Rate-It</span>
+            <span>Rest-Review</span>
           </div>
-          <input
-            className="location-box"
-            value={searchText}
-            onChange={handleSearchChange}
-          ></input>
-          <img className="res-image" src="./testimage.jpg" />
+
+
+          {/* <input className="location-box" value="Restaurant Name"></input> */}
+          <form onSubmit={handleSubmit}>
+            <input type="text" value={search.place} onChange={handleChange} className="location-box"/>
+            {/* <input type="submit" value="Submit" /> */}
+          </form>
+          {/* <img className="res-image" src="./testimage.jpg"/> */}
+          <iframe width="600" className="res-image" height="450" loading="lazy" allowfullscreen
+            src={`https://www.google.com/maps/embed/v1/place?q=${location}&key=AIzaSyBXVuclOKs8BC2ru7PfGinjwcd2CcOpcbQ`}>
+          </iframe>
           <div className="consensus-container">
             <h2>
               <img className="icon" src="./chat-bubble-icon.svg"></img>General
